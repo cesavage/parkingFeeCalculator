@@ -29,6 +29,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 double cost = calculateCost(amountInt);
 
                 mCalculatedCost.setText(Double.toString(cost));
+
             }
         });
     }
