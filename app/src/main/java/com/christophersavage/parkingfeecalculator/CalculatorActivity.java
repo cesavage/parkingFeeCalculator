@@ -16,22 +16,39 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
-        mCalculateCostButton = findViewById(R.id.calculateCostButton);
+        mCalculateCostButton = findViewById(R.id.calculateCost_button);
         mCalculateCostButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 mCalculatedCost = findViewById(R.id.calculatedCost);
 
-                TextView hoursParked = findViewById(R.id.hibble);
-                String amount = hoursParked.getText().toString();
+                TextView mHoursParked = findViewById(R.id.hoursParked);
+                String amount = mHoursParked.getText().toString();
                 int amountInt = Integer.parseInt(amount);
 
+                double cost = calculateCost(amountInt);
 
-
-                mCalculatedCost.setText(Integer.toString(amountInt));
-
+                mCalculatedCost.setText(Double.toString(cost));
             }
         });
+    }
+
+    protected double calculateCost(int hoursParked){
+        double totalCost;
+
+        if (hoursParked <= 3){
+            totalCost = 5;
+        }
+
+        else if (hoursParked < 12){
+            totalCost = 5 + (1.5 * (hoursParked-3));
+        }
+
+        else{
+            totalCost = 18;
+        }
+
+        return totalCost;
     }
 
 }
