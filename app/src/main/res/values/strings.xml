@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Parking Fee Calculator</string>
-    <string name="hoursPrompt">Enter the number of hours parked:</string>
+    <string name="userInputPrompt">Enter the number of hours parked.\n(Round up to the next whole hour.)</string>
     <string name="buttonCalcuate_title">Calculate cost</string>
-    <string name="calculatedCost">0</string>
+    <string name="calculatedParkingCost">0</string>
+    <string name="calculatedCostLabel">Total parking cost:</string>
 </resources>

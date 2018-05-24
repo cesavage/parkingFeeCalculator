@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class CalculatorActivity extends AppCompatActivity {
 
-    private TextView mCalculatedCost_textView;
+    private TextView mCalculatedParkingCost_textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,43 +21,43 @@ public class CalculatorActivity extends AppCompatActivity {
         mCalculateCostButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                mCalculatedCost_textView = findViewById(R.id.calculatedCost);
+                mCalculatedParkingCost_textView = findViewById(R.id.calculatedParkingCost);
                 EditText mHoursParked_editText = findViewById(R.id.hoursParked);
-                int amountInt;
+
+                int hoursParked;
                 try{
-                    amountInt = Integer.parseInt(mHoursParked_editText.getText().toString());
+                    hoursParked = Integer.parseInt(mHoursParked_editText.getText().toString());
                 }
                 catch (NumberFormatException e){
-                    amountInt = 0;
-                    Toast.makeText(CalculatorActivity.this, "Enter the number of hours parked, rounded to the next hour.", Toast.LENGTH_LONG).show();
+                    hoursParked = 0;
+                    Toast.makeText(CalculatorActivity.this, R.string.userInputPrompt, Toast.LENGTH_LONG).show();
                 }
 
-                double cost = calculateCost(amountInt);
-
-                mCalculatedCost_textView.setText(Double.toString(cost));
-
+                double calculatedParkingCost = calculateCost(hoursParked);
+                mCalculatedParkingCost_textView.setText(String.format(Double.toString(calculatedParkingCost), "%d"));
             }
         });
     }
 
     protected double calculateCost(int hoursParked){
-        double totalCost;
+        double parkingCost;
 
         if (hoursParked == 0){
-            totalCost = 0;
+            parkingCost = 0;
         }
+
         else if (hoursParked <= 3){
-            totalCost = 5;
+            parkingCost = 5;
         }
 
         else if (hoursParked < 12){
-            totalCost = 5 + (1.5 * (hoursParked-3));
+            parkingCost = 5 + (1.5 * (hoursParked-3));
         }
 
         else{
-            totalCost = 18;
+            parkingCost = 18;
         }
 
-        return totalCost;
+        return parkingCost;
     }
 }

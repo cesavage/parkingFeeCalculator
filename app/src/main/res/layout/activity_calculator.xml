@@ -17,12 +17,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hoursPrompt"/>
+            android:textAlignment="center"
+            android:text="@string/userInputPrompt"/>
 
         <EditText
             android:id="@+id/hoursParked"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="35dp"
+            android:layout_height="60dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
             android:inputType="number"/>
 
         <Button
@@ -32,12 +35,17 @@
             android:text="@string/buttonCalcuate_title"/>
 
         <TextView
-            android:id="@+id/calculatedCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calculatedCost" />
+            android:layout_marginTop="70dp"
+            android:text="@string/calculatedCostLabel"/>
 
+        <TextView
+            android:id="@+id/calculatedParkingCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="@string/calculatedParkingCost" />
     </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>
